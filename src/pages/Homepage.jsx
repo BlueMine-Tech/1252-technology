@@ -1,13 +1,14 @@
-import WhoWereBestForSection from '../../../../Downloads/WhoWereBestForSection';
+
 import HeroSection from '../components/HeroSection';
 import LifecycleAssuranceSection from '../components/Lifecycleassurance';
+import WhoWereBestForSection from '../components/WhoWereBestForSection';
 
 function HomePage() {
   return (
     <div>
       <HeroSection />
       <LifecycleAssuranceSection/>
-      <WhoWereBestForSection/>
+ <WhoWereBestForSection/>
     </div>
   );
 }
