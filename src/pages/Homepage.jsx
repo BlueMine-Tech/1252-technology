@@ -1,3 +1,4 @@
+import FinalCTASection from '../components/FinalCTASection';
 import HeroSection from '../components/HeroSection';
 import LifecycleAssuranceSection from '../components/LifecycleAssuranceSection';
 import WhoWereBestForSection from '../components/WhoWereBestForSection';
@@ -11,6 +12,7 @@ function HomePage() {
       <LifecycleAssuranceSection/>
  <WhoWereBestForSection/>
  <IndustriesWeSupport/>
+ <FinalCTASection/>
  
     </div>
   );
