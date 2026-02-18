@@ -10,8 +10,7 @@ function HomePage() {
     <div>
       <HeroSection />
       <LifecycleAssuranceSection/>
- <WhoWereBestForSection/>
- <IndustriesWeSupport/>
+
  <FinalCTASection/>
  
     </div>

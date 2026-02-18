@@ -126,11 +126,11 @@ const AboutHeroSection = () => {
             }`}
           >
             <span className="block text-white leading-tight mb-3">
-              We're Not the Biggest
+              Delivering Reliable
             </span>
             <span className="relative inline-block">
               <span className="relative z-10 bg-gradient-to-r from-cyan-400 via-blue-500 to-cyan-400 bg-clip-text text-transparent animate-gradient-x">
-                We're the Most Careful
+                IT Hardware Solutions
               </span>
               <span className="absolute -bottom-2 left-0 right-0 h-3 bg-gradient-to-r from-blue-600 to-cyan-500 blur-lg opacity-50"></span>
             </span>
