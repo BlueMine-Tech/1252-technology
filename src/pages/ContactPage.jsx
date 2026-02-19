@@ -417,7 +417,11 @@ const ContactPage = () => {
                     <h3 className="text-xl font-bold text-white">Our Location</h3>
                   </div>
                   <p className="text-slate-300 leading-relaxed">
-                    <strong className="text-white">Singapore-Based</strong><br />
+                    <strong className="text-white">60 Paya Lebar Road, #06-28</strong><br />
+                    Paya Lebar Square<br />
+                    Singapore 409051
+                  </p>
+                  <p className="text-slate-400 text-sm mt-3">
                     Serving businesses across Singapore and the region with fast, reliable support.
                   </p>
                 </div>

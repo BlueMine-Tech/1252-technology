@@ -238,7 +238,11 @@ const FinalCTASection = () => {
                 </svg>
               </div>
               <h3 className="text-sm font-semibold text-slate-400 mb-2">Location</h3>
-              <p className="text-white font-medium">Singapore</p>
+              <p className="text-white font-medium text-sm">
+                60 Paya Lebar Road, #06-28<br />
+                Paya Lebar Square<br />
+                Singapore 409051
+              </p>
             </div>
           </div>
         </div>

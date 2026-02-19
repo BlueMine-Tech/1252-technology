@@ -23,6 +23,10 @@ const HeroSection = () => {
         <div className="absolute -top-10 -left-20 w-96 h-96 bg-cyan-500 rounded-full mix-blend-multiply filter blur-3xl opacity-15 animate-blob animation-delay-2000"></div>
         <div className="absolute -bottom-20 left-1/3 w-96 h-96 bg-blue-700 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
         
+        {/* Gold accent subtle glow orbs */}
+        <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-yellow-500 rounded-full mix-blend-overlay filter blur-3xl opacity-5 animate-blob animation-delay-3000"></div>
+        <div className="absolute bottom-1/3 left-1/4 w-48 h-48 bg-yellow-400 rounded-full mix-blend-overlay filter blur-3xl opacity-5 animate-blob animation-delay-5000"></div>
+        
         {/* Animated Grid Lines */}
         <svg className="absolute inset-0 w-full h-full opacity-20" xmlns="http://www.w3.org/2000/svg">
           <defs>
@@ -140,12 +144,16 @@ const HeroSection = () => {
       {/* Content Container */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 py-20">
         <div className="text-center">
-          {/* Badge */}
+          {/* Badge with gold accent */}
           <div 
-            className={`inline-flex items-center gap-2 px-5 py-2.5 mb-8 bg-gradient-to-r from-blue-600/20 to-cyan-500/20 backdrop-blur-sm border border-blue-500/30 rounded-full transition-all duration-1000 ${
+            className={`inline-flex items-center gap-2 px-5 py-2.5 mb-8 bg-gradient-to-r from-blue-600/20 to-cyan-500/20 backdrop-blur-sm border border-blue-500/30 rounded-full transition-all duration-1000 relative ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
             }`}
           >
+            {/* Subtle gold accent lines */}
+            <div className="absolute inset-0 rounded-full border border-yellow-500/20 -translate-y-[1px]"></div>
+            <div className="absolute inset-0 rounded-full border border-yellow-600/15 translate-x-[1px]"></div>
+            
             <svg className="w-5 h-5 text-cyan-400 animate-spin-slow" fill="currentColor" viewBox="0 0 20 20">
               <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
             </svg>
@@ -154,7 +162,7 @@ const HeroSection = () => {
             </span>
           </div>
 
-          {/* Main Heading */}
+          {/* Main Heading with gold underline accent */}
           <h1 
             className={`text-5xl md:text-6xl lg:text-7xl font-black mb-6 transition-all duration-1000 delay-200 ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
@@ -170,7 +178,10 @@ const HeroSection = () => {
               <span className="relative z-10 bg-gradient-to-r from-cyan-400 via-blue-500 to-cyan-400 bg-clip-text text-transparent animate-gradient-x">
                 Trusted Technology
               </span>
+              {/* Main blue glow */}
               <span className="absolute -bottom-2 left-0 right-0 h-3 bg-gradient-to-r from-blue-600 to-cyan-500 blur-lg opacity-50"></span>
+              {/* Subtle gold accent line */}
+              <span className="absolute -bottom-1 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-yellow-500/40 to-transparent"></span>
             </span>
           </h1>
 
@@ -190,7 +201,7 @@ const HeroSection = () => {
             </p>
           </div>
 
-          {/* Feature Pills */}
+          {/* Feature Pills with gold accents */}
           <div 
             className={`flex flex-wrap items-center justify-center gap-4 mb-12 transition-all duration-1000 delay-600 ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
@@ -199,9 +210,12 @@ const HeroSection = () => {
             {features.map((feature, index) => (
               <div
                 key={index}
-                className="group flex items-center gap-2 px-6 py-3 bg-blue-600/10 backdrop-blur-sm border border-blue-500/30 rounded-full hover:bg-blue-600/20 hover:border-cyan-400/50 transition-all duration-300 hover:scale-105"
+                className="group relative flex items-center gap-2 px-6 py-3 bg-blue-600/10 backdrop-blur-sm border border-blue-500/30 rounded-full hover:bg-blue-600/20 hover:border-cyan-400/50 transition-all duration-300 hover:scale-105"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
+                {/* Gold accent on hover */}
+                <div className="absolute inset-0 rounded-full border border-yellow-500/0 group-hover:border-yellow-500/20 transition-all duration-300 -translate-x-[1px] -translate-y-[1px]"></div>
+                
                 <span className="text-lg group-hover:scale-110 transition-transform duration-300">
                   {feature.icon}
                 </span>
@@ -212,7 +226,7 @@ const HeroSection = () => {
             ))}
           </div>
 
-          {/* CTA Buttons */}
+          {/* CTA Buttons with gold accents */}
           <div 
             className={`flex flex-col sm:flex-row items-center justify-center gap-4 mb-16 transition-all duration-1000 delay-800 ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
@@ -231,8 +245,9 @@ const HeroSection = () => {
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
               </div>
               
-              {/* Border */}
+              {/* Border with subtle gold accent */}
               <div className="absolute inset-0 rounded-xl border-2 border-blue-500 group-hover:border-cyan-400 transition-all duration-300"></div>
+              <div className="absolute inset-0 rounded-xl border border-yellow-500/0 group-hover:border-yellow-500/20 transition-all duration-300 translate-x-[1px] translate-y-[1px]"></div>
               
               {/* Text */}
               <span className="relative z-10 flex items-center gap-2">
@@ -246,8 +261,11 @@ const HeroSection = () => {
             {/* Secondary CTA */}
             <Link
               to="/about"
-              className="group px-10 py-5 text-lg font-semibold text-slate-200 rounded-xl border-2 border-blue-600/50 hover:border-cyan-400 hover:bg-blue-600/10 transition-all duration-300 flex items-center gap-2"
+              className="group relative px-10 py-5 text-lg font-semibold text-slate-200 rounded-xl border-2 border-blue-600/50 hover:border-cyan-400 hover:bg-blue-600/10 transition-all duration-300 flex items-center gap-2"
             >
+              {/* Subtle gold accent on hover */}
+              <div className="absolute inset-0 rounded-xl border border-yellow-500/0 group-hover:border-yellow-500/15 transition-all duration-300 -translate-x-[1px] -translate-y-[1px]"></div>
+              
               Learn Our Approach
               <svg className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
@@ -265,7 +283,9 @@ const HeroSection = () => {
               <span className="text-sm font-medium text-slate-400/70 tracking-wider uppercase">
                 Scroll to Explore
               </span>
-              <div className="w-6 h-10 border-2 border-blue-500/50 rounded-full flex items-start justify-center p-2">
+              <div className="relative w-6 h-10 border-2 border-blue-500/50 rounded-full flex items-start justify-center p-2">
+                {/* Gold accent on scroll indicator */}
+                <div className="absolute inset-0 rounded-full border border-yellow-500/20 translate-x-[1px]"></div>
                 <div className="w-1.5 h-3 bg-cyan-400 rounded-full animate-scroll"></div>
               </div>
             </div>
@@ -513,6 +533,10 @@ const HeroSection = () => {
 
         .animation-delay-4000 {
           animation-delay: 4s;
+        }
+
+        .animation-delay-5000 {
+          animation-delay: 5s;
         }
       `}</style>
     </section>
