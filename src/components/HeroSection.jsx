@@ -162,16 +162,16 @@ const HeroSection = () => {
             </span>
           </div>
 
-          {/* Main Heading with gold underline accent */}
+          {/* Main Heading with gold offset shadow effect — mimics the 1252 logo dual-layer gold border */}
           <h1 
             className={`text-5xl md:text-6xl lg:text-7xl font-black mb-6 transition-all duration-1000 delay-200 ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
             }`}
           >
-            <span className="block text-white leading-tight mb-3">
+            <span className="gold-border-text block text-white leading-tight mb-3">
               We Power Modern
             </span>
-            <span className="block text-white leading-tight mb-3">
+            <span className="gold-border-text block text-white leading-tight mb-3">
               Businesses with
             </span>
             <span className="relative inline-block">
@@ -302,6 +302,35 @@ const HeroSection = () => {
 
       {/* Animations */}
       <style jsx>{`
+        /* ============================================================
+           GOLD BORDER EFFECT — medium visibility, like the 1252 logo:
+           Clean gold outline + subtle offset depth layer.
+        ============================================================ */
+        .gold-border-text {
+          position: relative;
+          text-shadow:
+            /* Gold outline — slightly reduced */
+             1px  1px 0px rgba(212, 175, 55, 0.75),
+            -1px -1px 0px rgba(212, 175, 55, 0.75),
+             1px -1px 0px rgba(212, 175, 55, 0.6),
+            -1px  1px 0px rgba(212, 175, 55, 0.6),
+            /* Offset gold copy for logo-style depth */
+             3px  3px 0px rgba(170, 130, 10, 0.35),
+            /* Subtle dark shadow for contrast */
+             4px  4px 3px rgba(0, 0, 0, 0.45);
+        }
+
+        .gold-border-text:hover {
+          text-shadow:
+             1px  1px 0px rgba(240, 200, 60, 0.9),
+            -1px -1px 0px rgba(240, 200, 60, 0.9),
+             1px -1px 0px rgba(240, 200, 60, 0.75),
+            -1px  1px 0px rgba(240, 200, 60, 0.75),
+             3px  3px 0px rgba(190, 150, 20, 0.45),
+             4px  4px 3px rgba(0, 0, 0, 0.45);
+          transition: text-shadow 0.4s ease;
+        }
+
         @keyframes blob {
           0%, 100% {
             transform: translate(0, 0) scale(1);

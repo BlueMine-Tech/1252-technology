@@ -9,7 +9,6 @@ const LifecycleAssuranceSection = () => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            // Trigger cards to appear one by one
             lifecycleSteps.forEach((_, index) => {
               setTimeout(() => {
                 setVisibleCards(prev => [...prev, index]);
@@ -83,15 +82,12 @@ const LifecycleAssuranceSection = () => {
     <section ref={sectionRef} className="py-20 lg:py-32 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 relative overflow-hidden">
       {/* Background Decoration */}
       <div className="absolute inset-0 overflow-hidden">
-        {/* Gradient Orbs */}
         <div className="absolute top-20 right-0 w-96 h-96 bg-blue-600 rounded-full mix-blend-multiply filter blur-3xl opacity-15 animate-blob"></div>
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-cyan-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob animation-delay-2000"></div>
         <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-blue-700 rounded-full mix-blend-multiply filter blur-3xl opacity-15 animate-blob animation-delay-4000"></div>
 
-        {/* Grid Pattern */}
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMzLjMxNCAwIDYgMi42ODYgNiA2cy0yLjY4NiA2LTYgNi02LTIuNjg2LTYtNiAyLjY4Ni02IDYtNnoiIHN0cm9rZT0icmdiYSgzNCwgMjExLCAyMzgsIDAuMDMpIiBzdHJva2Utd2lkdGg9IjEiLz48L2c+PC9zdmc+')] opacity-20"></div>
 
-        {/* Floating Particles */}
         {[...Array(8)].map((_, i) => (
           <div
             key={i}
@@ -120,7 +116,8 @@ const LifecycleAssuranceSection = () => {
             <span className="text-sm font-semibold text-cyan-400 tracking-wide">Our Framework</span>
           </div>
 
-          <h2 className="text-4xl lg:text-5xl font-black text-white mb-4 animate-fadeIn animation-delay-200">
+          {/* Heading with gold border effect — same as HeroSection */}
+          <h2 className="text-4xl lg:text-5xl font-black text-white mb-4 animate-fadeIn animation-delay-200 gold-border-text">
             Lifecycle Assurance™
           </h2>
           <p className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed animate-fadeIn animation-delay-400">
@@ -141,32 +138,25 @@ const LifecycleAssuranceSection = () => {
             >
               {/* Card */}
               <div className="relative bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm p-8 rounded-2xl border-2 border-blue-500/30 hover:border-cyan-400 transition-all duration-300 hover:shadow-[0_20px_60px_rgba(34,211,238,0.2)] hover:scale-105 h-full flex flex-col overflow-hidden">
-                {/* Glow effect on hover */}
                 <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/0 to-blue-600/0 group-hover:from-cyan-500/10 group-hover:to-blue-600/10 transition-all duration-500 rounded-2xl"></div>
                 
-                {/* Content */}
                 <div className="relative z-10">
-                  {/* Icon */}
                   <div className="text-6xl mb-4 group-hover:scale-110 transition-transform duration-300 animate-float-subtle" style={{ animationDelay: `${index * 0.2}s` }}>
                     {step.icon}
                   </div>
 
-                  {/* Step Number */}
                   <div className="text-5xl font-black bg-gradient-to-r from-cyan-400/30 to-blue-500/30 bg-clip-text text-transparent mb-2 group-hover:from-cyan-400/50 group-hover:to-blue-500/50 transition-all duration-300">
                     {step.number}
                   </div>
 
-                  {/* Title */}
                   <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-cyan-400 transition-colors duration-300">
                     {step.title}
                   </h3>
 
-                  {/* Description */}
                   <p className="text-slate-300 leading-relaxed mb-4 flex-grow">
                     {step.description}
                   </p>
 
-                  {/* Details List */}
                   <ul className="space-y-2 mt-auto">
                     {step.details.map((detail, idx) => (
                       <li key={idx} className="flex items-start gap-2 text-sm text-slate-400 group-hover:text-cyan-300 transition-colors duration-300">
@@ -179,14 +169,12 @@ const LifecycleAssuranceSection = () => {
                   </ul>
                 </div>
 
-                {/* Animated corner accent */}
                 <div className="absolute top-0 right-0 w-20 h-20 overflow-hidden rounded-tr-2xl">
                   <div className="absolute top-0 right-0 w-1 h-full bg-gradient-to-b from-cyan-400 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   <div className="absolute top-0 right-0 w-full h-1 bg-gradient-to-l from-cyan-400 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 </div>
               </div>
 
-              {/* Arrow between cards (desktop only) */}
               {index < lifecycleSteps.length - 1 && (
                 <div className="hidden lg:block absolute top-1/2 -right-4 transform -translate-y-1/2 z-10">
                   <svg className="w-8 h-8 text-cyan-400 animate-pulse-slow" fill="currentColor" viewBox="0 0 20 20">
@@ -195,7 +183,6 @@ const LifecycleAssuranceSection = () => {
                 </div>
               )}
 
-              {/* Mobile arrow (vertical) */}
               {index < lifecycleSteps.length - 1 && (
                 <div className="lg:hidden flex justify-center my-4">
                   <svg className="w-8 h-8 text-cyan-400 animate-bounce-slow" fill="currentColor" viewBox="0 0 20 20">
@@ -210,13 +197,8 @@ const LifecycleAssuranceSection = () => {
         {/* Bottom Note */}
         <div className="mt-16 text-center animate-fadeIn animation-delay-1000">
           <div className="relative inline-block bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-600 bg-[length:200%_100%] animate-gradient p-8 rounded-2xl max-w-3xl overflow-hidden">
-            {/* Shine effect */}
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent animate-shine"></div>
-            
-            {/* Border glow */}
             <div className="absolute inset-0 rounded-2xl border-2 border-cyan-400/50"></div>
-            
-            {/* Content */}
             <p className="relative z-10 text-lg text-white leading-relaxed">
               This approach ensures every <strong className="text-cyan-300">hardware solution</strong> remains stable, supported, and scalable throughout its lifecycle — from initial assessment to end-of-life replacement.
             </p>
@@ -225,136 +207,83 @@ const LifecycleAssuranceSection = () => {
       </div>
 
       <style jsx>{`
+        /* Gold border effect — same as HeroSection heading */
+        .gold-border-text {
+          text-shadow:
+             1px  1px 0px rgba(212, 175, 55, 0.75),
+            -1px -1px 0px rgba(212, 175, 55, 0.75),
+             1px -1px 0px rgba(212, 175, 55, 0.6),
+            -1px  1px 0px rgba(212, 175, 55, 0.6),
+             3px  3px 0px rgba(170, 130, 10, 0.35),
+             4px  4px 3px rgba(0, 0, 0, 0.45);
+        }
+
+        .gold-border-text:hover {
+          text-shadow:
+             1px  1px 0px rgba(240, 200, 60, 0.9),
+            -1px -1px 0px rgba(240, 200, 60, 0.9),
+             1px -1px 0px rgba(240, 200, 60, 0.75),
+            -1px  1px 0px rgba(240, 200, 60, 0.75),
+             3px  3px 0px rgba(190, 150, 20, 0.45),
+             4px  4px 3px rgba(0, 0, 0, 0.45);
+          transition: text-shadow 0.4s ease;
+        }
+
         @keyframes fadeIn {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
+          from { opacity: 0; transform: translateY(20px); }
+          to { opacity: 1; transform: translateY(0); }
         }
 
         @keyframes blob {
-          0%, 100% {
-            transform: translate(0, 0) scale(1);
-          }
-          33% {
-            transform: translate(30px, -50px) scale(1.1);
-          }
-          66% {
-            transform: translate(-20px, 20px) scale(0.9);
-          }
+          0%, 100% { transform: translate(0, 0) scale(1); }
+          33% { transform: translate(30px, -50px) scale(1.1); }
+          66% { transform: translate(-20px, 20px) scale(0.9); }
         }
 
         @keyframes float {
-          0%, 100% {
-            transform: translateY(0) translateX(0);
-            opacity: 0.4;
-          }
-          50% {
-            transform: translateY(-20px) translateX(10px);
-            opacity: 0.8;
-          }
+          0%, 100% { transform: translateY(0) translateX(0); opacity: 0.4; }
+          50% { transform: translateY(-20px) translateX(10px); opacity: 0.8; }
         }
 
         @keyframes float-subtle {
-          0%, 100% {
-            transform: translateY(0);
-          }
-          50% {
-            transform: translateY(-5px);
-          }
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-5px); }
         }
 
         @keyframes bounce-slow {
-          0%, 100% {
-            transform: translateY(0);
-          }
-          50% {
-            transform: translateY(-10px);
-          }
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-10px); }
         }
 
         @keyframes pulse-slow {
-          0%, 100% {
-            opacity: 1;
-          }
-          50% {
-            opacity: 0.6;
-          }
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0.6; }
         }
 
         @keyframes gradient {
-          0%, 100% {
-            background-position: 0% 50%;
-          }
-          50% {
-            background-position: 100% 50%;
-          }
+          0%, 100% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
         }
 
         @keyframes shine {
-          0% {
-            transform: translateX(-100%) skewX(-15deg);
-          }
-          100% {
-            transform: translateX(200%) skewX(-15deg);
-          }
+          0% { transform: translateX(-100%) skewX(-15deg); }
+          100% { transform: translateX(200%) skewX(-15deg); }
         }
 
-        .animate-fadeIn {
-          animation: fadeIn 0.8s ease-out forwards;
-        }
+        .animate-fadeIn { animation: fadeIn 0.8s ease-out forwards; }
+        .animate-blob { animation: blob 8s infinite; }
+        .animate-float { animation: float 8s ease-in-out infinite; }
+        .animate-float-subtle { animation: float-subtle 3s ease-in-out infinite; }
+        .animate-bounce-slow { animation: bounce-slow 3s ease-in-out infinite; }
+        .animate-pulse-slow { animation: pulse-slow 3s ease-in-out infinite; }
+        .animate-gradient { animation: gradient 4s ease infinite; }
+        .animate-shine { animation: shine 3s infinite; }
 
-        .animate-blob {
-          animation: blob 8s infinite;
-        }
-
-        .animate-float {
-          animation: float 8s ease-in-out infinite;
-        }
-
-        .animate-float-subtle {
-          animation: float-subtle 3s ease-in-out infinite;
-        }
-
-        .animate-bounce-slow {
-          animation: bounce-slow 3s ease-in-out infinite;
-        }
-
-        .animate-pulse-slow {
-          animation: pulse-slow 3s ease-in-out infinite;
-        }
-
-        .animate-gradient {
-          animation: gradient 4s ease infinite;
-        }
-
-        .animate-shine {
-          animation: shine 3s infinite;
-        }
-
-        .animation-delay-200 {
-          animation-delay: 0.2s;
-        }
-
-        .animation-delay-400 {
-          animation-delay: 0.4s;
-        }
-
-        .animation-delay-1000 {
-          animation-delay: 1s;
-        }
-
-        .animation-delay-2000 {
-          animation-delay: 2s;
-        }
-
-        .animation-delay-4000 {
-          animation-delay: 4s;
-        }
+        .animation-delay-200 { animation-delay: 0.2s; }
+        .animation-delay-400 { animation-delay: 0.4s; }
+        .animation-delay-1000 { animation-delay: 1s; }
+        .animation-delay-2000 { animation-delay: 2s; }
+        .animation-delay-4000 { animation-delay: 4s; }
       `}</style>
     </section>
   );
