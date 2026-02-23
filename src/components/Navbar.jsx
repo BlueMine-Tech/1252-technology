@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
+// Import your logo — adjust the path to match your project structure
+import logo from '../assets/1252-01.png';
+
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -36,9 +39,8 @@ const Navbar = () => {
 
   const navLinks = [
     { name: 'Home', path: '/' },
-    { name: 'About', path: '/about' },
+    { name: 'About Us', path: '/about' },
     { name: 'Services', path: '/services' },
-    { name: 'Contact', path: '/contact' },
   ];
 
   const isActivePath = (path) => location.pathname === path;
@@ -46,30 +48,32 @@ const Navbar = () => {
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          isScrolled
-            ? 'bg-slate-950/95 backdrop-blur-xl shadow-xl shadow-blue-900/20'
-            : 'bg-gradient-to-b from-slate-950/90 to-slate-900/80 backdrop-blur-md'
-        }`}
+        className="fixed top-0 left-0 right-0 z-50 bg-black border-b border-blue-900/50 shadow-2xl shadow-black"
       >
         <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-600"></div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
 
-            {/* Logo */}
+            {/* Logo — PNG image */}
             <Link
               to="/"
-              className="relative group flex items-center gap-3 px-4 py-2 rounded-xl transition-all duration-300 hover:scale-105"
+              className="relative group flex items-center transition-all duration-300 hover:scale-105"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-cyan-500/20 rounded-xl opacity-0 group-hover:opacity-100 blur-sm transition-opacity duration-300"></div>
-              <div className="relative z-10 flex items-center justify-center w-12 h-12 rounded-lg bg-gradient-to-br from-blue-600 to-cyan-500 shadow-lg shadow-blue-600/30 group-hover:shadow-cyan-500/50 transition-all duration-300">
-                <span className="text-lg font-bold text-white">1252</span>
-              </div>
-              <div className="relative z-10 w-px h-8 bg-gradient-to-b from-transparent via-blue-500 to-transparent opacity-50"></div>
-              <div className="relative z-10 flex flex-col">
-                <span className="text-sm font-semibold text-slate-200 leading-tight tracking-wide">Technology</span>
-                <span className="text-xs text-cyan-400 leading-tight tracking-wider">Pte Limited</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-cyan-500/10 rounded-xl opacity-0 group-hover:opacity-100 blur-sm transition-opacity duration-300"></div>
+              <div className="relative z-10 rounded-lg overflow-hidden">
+                <img
+                  src={logo}
+                  alt="1252 Technology Pte Ltd"
+                  className="h-12 w-auto object-contain"
+                  style={{
+                    mixBlendMode: 'screen',
+                    filter: 'brightness(1.8) saturate(1.2) drop-shadow(0 0 0px transparent)',
+                    transition: 'filter 0.3s'
+                  }}
+                  onMouseEnter={e => e.currentTarget.style.filter = 'brightness(2.2) saturate(1.3) drop-shadow(0 0 12px rgba(6,182,212,0.7))'}
+                  onMouseLeave={e => e.currentTarget.style.filter = 'brightness(1.8) saturate(1.2) drop-shadow(0 0 0px transparent)'}
+                />
               </div>
             </Link>
 

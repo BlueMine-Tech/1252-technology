@@ -106,9 +106,7 @@ const FinalCTASection = () => {
           <p className="text-xl lg:text-2xl text-slate-300 leading-relaxed mb-4">
             Let's discuss how we can support your hardware requirements with reliable, long-term solutions.
           </p>
-          <p className="text-lg text-cyan-400 font-semibold">
-            12 Months. 52 Weeks. Always On.
-          </p>
+       
         </div>
 
         {/* CTA Buttons */}
