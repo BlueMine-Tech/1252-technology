@@ -6,10 +6,8 @@ import TechEcosystemSection from "../components/ServicesComponent/Techechosystem
 
 const ServicesPage = () => (
   <div>
- <ServicesHeroSection/>
  <CoreServicesSection/>
  <IndustriesSection/>
- <TechEcosystemSection/>
  <FinalCTASection/>
   </div>
 )

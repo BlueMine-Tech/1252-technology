@@ -65,14 +65,16 @@ const Navbar = () => {
                 <img
                   src={logo}
                   alt="1252 Technology Pte Ltd"
-                  className="h-12 w-auto object-contain"
+                  className="h-30 w-auto object-contain"
                   style={{
+                    minWidth: '190px',
+                    maxWidth: '250px',
                     mixBlendMode: 'screen',
-                    filter: 'brightness(1.8) saturate(1.2) drop-shadow(0 0 0px transparent)',
+                    filter: 'brightness(2.0) saturate(1.3) contrast(1.1) drop-shadow(0 0 0px transparent)',
                     transition: 'filter 0.3s'
                   }}
-                  onMouseEnter={e => e.currentTarget.style.filter = 'brightness(2.2) saturate(1.3) drop-shadow(0 0 12px rgba(6,182,212,0.7))'}
-                  onMouseLeave={e => e.currentTarget.style.filter = 'brightness(1.8) saturate(1.2) drop-shadow(0 0 0px transparent)'}
+                  onMouseEnter={e => e.currentTarget.style.filter = 'brightness(2.4) saturate(1.4) contrast(1.1) drop-shadow(0 0 14px rgba(6,182,212,0.8))'}
+                  onMouseLeave={e => e.currentTarget.style.filter = 'brightness(2.0) saturate(1.3) contrast(1.1) drop-shadow(0 0 0px transparent)'}
                 />
               </div>
             </Link>

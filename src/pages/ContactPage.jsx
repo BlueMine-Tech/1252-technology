@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import emailjs from '@emailjs/browser';
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -24,9 +25,23 @@ const ContactPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    setTimeout(() => {
+
+    try {
+      await emailjs.send(
+        'service_x4eexew',
+        'template_rvdpnqf',
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          phone: formData.phone,
+          company: formData.company,
+          project_type: formData.projectType,
+          timeline: formData.timeline,
+          message: formData.message,
+        },
+        'tXniJcr9hs6DWXgux'
+      );
+
       setIsSubmitting(false);
       setSubmitStatus('success');
       setFormData({
@@ -38,10 +53,14 @@ const ContactPage = () => {
         message: '',
         timeline: ''
       });
-      
-      // Reset status after 5 seconds
+
       setTimeout(() => setSubmitStatus(null), 5000);
-    }, 1500);
+
+    } catch (error) {
+      console.error('EmailJS error:', error);
+      setIsSubmitting(false);
+      setSubmitStatus('error');
+    }
   };
 
   const projectTypes = [
@@ -96,21 +115,15 @@ const ContactPage = () => {
     }
   ];
 
-  const businessHours = [
-    { day: 'Monday - Friday', hours: '9:00 AM - 6:00 PM' },
-    { day: 'Saturday', hours: '9:00 AM - 1:00 PM' },
-    { day: 'Sunday', hours: 'Closed' }
-  ];
+
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden">
-        {/* Background Elements */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-20 -right-20 w-96 h-96 bg-blue-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
           <div className="absolute -top-10 -left-20 w-96 h-96 bg-cyan-500 rounded-full mix-blend-multiply filter blur-3xl opacity-15 animate-blob animation-delay-2000"></div>
-          
           <svg className="absolute inset-0 w-full h-full opacity-20" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <pattern id="contactGrid" width="60" height="60" patternUnits="userSpaceOnUse">
@@ -119,7 +132,6 @@ const ContactPage = () => {
             </defs>
             <rect width="100%" height="100%" fill="url(#contactGrid)" />
           </svg>
-
           {[...Array(8)].map((_, i) => (
             <div
               key={i}
@@ -136,7 +148,6 @@ const ContactPage = () => {
           ))}
         </div>
 
-        {/* Content */}
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 px-5 py-2.5 mb-6 bg-gradient-to-r from-blue-600/20 to-cyan-500/20 backdrop-blur-sm border border-blue-500/30 rounded-full animate-fadeIn">
@@ -145,7 +156,6 @@ const ContactPage = () => {
               </svg>
               <span className="text-sm font-semibold text-cyan-400 tracking-wide">Get In Touch</span>
             </div>
-
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-6 animate-fadeIn animation-delay-200">
               Let's Discuss Your
               <span className="block mt-2">
@@ -157,9 +167,8 @@ const ContactPage = () => {
                 </span>
               </span>
             </h1>
-
             <p className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed animate-fadeIn animation-delay-400">
-              Have a project, requirement, or quotation request? We're here to help with reliable, 
+              Have a project, requirement, or quotation request? We're here to help with reliable,
               project-ready IT hardware solutions.
             </p>
           </div>
@@ -174,7 +183,6 @@ const ContactPage = () => {
             <div className="animate-fadeIn animation-delay-600">
               <div className="relative bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm p-8 lg:p-10 rounded-2xl border-2 border-blue-500/30 overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-blue-600/5"></div>
-                
                 <div className="relative z-10">
                   <h2 className="text-3xl font-black text-white mb-2">Request Solution Review</h2>
                   <p className="text-slate-400 mb-8">Fill out the form below and we'll get back to you within 24 hours.</p>
@@ -191,130 +199,71 @@ const ContactPage = () => {
                     </div>
                   )}
 
+                  {submitStatus === 'error' && (
+                    <div className="mb-6 p-4 bg-red-500/10 border border-red-500/30 rounded-xl flex items-start gap-3">
+                      <svg className="w-6 h-6 text-red-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                      </svg>
+                      <div>
+                        <p className="text-red-400 font-semibold">Something went wrong!</p>
+                        <p className="text-red-300/80 text-sm mt-1">Please try again or contact us directly.</p>
+                      </div>
+                    </div>
+                  )}
+
                   <form onSubmit={handleSubmit} className="space-y-6">
-                    {/* Name */}
                     <div>
-                      <label className="block text-sm font-semibold text-slate-300 mb-2">
-                        Name *
-                      </label>
-                      <input
-                        type="text"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        required
+                      <label className="block text-sm font-semibold text-slate-300 mb-2">Name *</label>
+                      <input type="text" name="name" value={formData.name} onChange={handleChange} required
                         className="w-full px-4 py-3 bg-slate-900/50 border border-blue-500/30 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 transition-all duration-300"
-                        placeholder="Your full name"
-                      />
+                        placeholder="Your full name" />
                     </div>
-
-                    {/* Email */}
                     <div>
-                      <label className="block text-sm font-semibold text-slate-300 mb-2">
-                        Email *
-                      </label>
-                      <input
-                        type="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        required
+                      <label className="block text-sm font-semibold text-slate-300 mb-2">Email *</label>
+                      <input type="email" name="email" value={formData.email} onChange={handleChange} required
                         className="w-full px-4 py-3 bg-slate-900/50 border border-blue-500/30 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 transition-all duration-300"
-                        placeholder="your.email@company.com"
-                      />
+                        placeholder="your.email@company.com" />
                     </div>
-
-                    {/* Phone */}
                     <div>
-                      <label className="block text-sm font-semibold text-slate-300 mb-2">
-                        Phone Number *
-                      </label>
-                      <input
-                        type="tel"
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleChange}
-                        required
+                      <label className="block text-sm font-semibold text-slate-300 mb-2">Phone Number *</label>
+                      <input type="tel" name="phone" value={formData.phone} onChange={handleChange} required
                         className="w-full px-4 py-3 bg-slate-900/50 border border-blue-500/30 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 transition-all duration-300"
-                        placeholder="+65 1234 5678"
-                      />
+                        placeholder="+65 1234 5678" />
                     </div>
-
-                    {/* Company */}
                     <div>
-                      <label className="block text-sm font-semibold text-slate-300 mb-2">
-                        Company
-                      </label>
-                      <input
-                        type="text"
-                        name="company"
-                        value={formData.company}
-                        onChange={handleChange}
+                      <label className="block text-sm font-semibold text-slate-300 mb-2">Company</label>
+                      <input type="text" name="company" value={formData.company} onChange={handleChange}
                         className="w-full px-4 py-3 bg-slate-900/50 border border-blue-500/30 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 transition-all duration-300"
-                        placeholder="Your company name"
-                      />
+                        placeholder="Your company name" />
                     </div>
-
-                    {/* Project Type */}
                     <div>
-                      <label className="block text-sm font-semibold text-slate-300 mb-2">
-                        Project Type *
-                      </label>
-                      <select
-                        name="projectType"
-                        value={formData.projectType}
-                        onChange={handleChange}
-                        required
-                        className="w-full px-4 py-3 bg-slate-900/50 border border-blue-500/30 rounded-xl text-white focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 transition-all duration-300"
-                      >
+                      <label className="block text-sm font-semibold text-slate-300 mb-2">Project Type *</label>
+                      <select name="projectType" value={formData.projectType} onChange={handleChange} required
+                        className="w-full px-4 py-3 bg-slate-900/50 border border-blue-500/30 rounded-xl text-white focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 transition-all duration-300">
                         <option value="">Select project type</option>
                         {projectTypes.map((type, index) => (
                           <option key={index} value={type}>{type}</option>
                         ))}
                       </select>
                     </div>
-
-                    {/* Timeline */}
                     <div>
-                      <label className="block text-sm font-semibold text-slate-300 mb-2">
-                        Timeline *
-                      </label>
-                      <select
-                        name="timeline"
-                        value={formData.timeline}
-                        onChange={handleChange}
-                        required
-                        className="w-full px-4 py-3 bg-slate-900/50 border border-blue-500/30 rounded-xl text-white focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 transition-all duration-300"
-                      >
+                      <label className="block text-sm font-semibold text-slate-300 mb-2">Timeline *</label>
+                      <select name="timeline" value={formData.timeline} onChange={handleChange} required
+                        className="w-full px-4 py-3 bg-slate-900/50 border border-blue-500/30 rounded-xl text-white focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 transition-all duration-300">
                         <option value="">Select timeline</option>
                         {timelines.map((timeline, index) => (
                           <option key={index} value={timeline}>{timeline}</option>
                         ))}
                       </select>
                     </div>
-
-                    {/* Message */}
                     <div>
-                      <label className="block text-sm font-semibold text-slate-300 mb-2">
-                        Project Details *
-                      </label>
-                      <textarea
-                        name="message"
-                        value={formData.message}
-                        onChange={handleChange}
-                        required
-                        rows="5"
+                      <label className="block text-sm font-semibold text-slate-300 mb-2">Project Details *</label>
+                      <textarea name="message" value={formData.message} onChange={handleChange} required rows="5"
                         className="w-full px-4 py-3 bg-slate-900/50 border border-blue-500/30 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 transition-all duration-300 resize-none"
-                        placeholder="Tell us about your requirements, environment, and what you're looking to achieve..."
-                      ></textarea>
+                        placeholder="Tell us about your requirements, environment, and what you're looking to achieve..."></textarea>
                     </div>
-
-                    {/* Submit Button */}
-                    <button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="group relative w-full px-8 py-4 text-lg font-bold text-white rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-[0_20px_60px_rgba(34,211,238,0.4)] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
-                    >
+                    <button type="submit" disabled={isSubmitting}
+                      className="group relative w-full px-8 py-4 text-lg font-bold text-white rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-[0_20px_60px_rgba(34,211,238,0.4)] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100">
                       <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-700 bg-[length:200%_100%] animate-gradient"></div>
                       <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
@@ -346,27 +295,20 @@ const ContactPage = () => {
 
             {/* Contact Info */}
             <div className="space-y-8 animate-fadeIn animation-delay-800">
-              {/* Contact Methods */}
               <div>
                 <h2 className="text-3xl font-black text-white mb-6">Get In Touch Directly</h2>
                 <div className="space-y-4">
                   {contactMethods.map((method, index) => (
-                    <a
-                      key={index}
-                      href={method.link}
-                      className="group relative block bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm p-6 rounded-xl border-2 border-blue-500/30 hover:border-cyan-400 transition-all duration-300 hover:shadow-[0_20px_60px_rgba(34,211,238,0.2)] overflow-hidden"
-                    >
+                    <a key={index} href={method.link}
+                      className="group relative block bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm p-6 rounded-xl border-2 border-blue-500/30 hover:border-cyan-400 transition-all duration-300 hover:shadow-[0_20px_60px_rgba(34,211,238,0.2)] overflow-hidden">
                       <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/0 to-blue-600/0 group-hover:from-cyan-500/10 group-hover:to-blue-600/10 transition-all duration-500 rounded-xl"></div>
-                      
                       <div className="relative z-10 flex items-start gap-4">
                         <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-blue-600 to-cyan-500 rounded-lg flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300">
                           {method.icon}
                         </div>
                         <div className="flex-1">
                           <h3 className="text-sm font-semibold text-slate-400 mb-1">{method.title}</h3>
-                          <p className="text-white font-bold text-lg mb-1 group-hover:text-cyan-400 transition-colors duration-300">
-                            {method.detail}
-                          </p>
+                          <p className="text-white font-bold text-lg mb-1 group-hover:text-cyan-400 transition-colors duration-300">{method.detail}</p>
                           <p className="text-slate-400 text-sm">{method.description}</p>
                         </div>
                         <svg className="w-5 h-5 text-cyan-400 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -378,34 +320,9 @@ const ContactPage = () => {
                 </div>
               </div>
 
-              {/* Business Hours */}
-              <div className="relative bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm p-6 rounded-xl border-2 border-blue-500/30 overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-blue-600/5"></div>
-                
-                <div className="relative z-10">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-cyan-500 rounded-lg flex items-center justify-center">
-                      <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                    </div>
-                    <h3 className="text-xl font-bold text-white">Business Hours</h3>
-                  </div>
-                  <div className="space-y-3">
-                    {businessHours.map((schedule, index) => (
-                      <div key={index} className="flex justify-between items-center py-2 border-b border-slate-700/50 last:border-0">
-                        <span className="text-slate-300 font-medium">{schedule.day}</span>
-                        <span className="text-cyan-400 font-semibold">{schedule.hours}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
 
-              {/* Location */}
               <div className="relative bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm p-6 rounded-xl border-2 border-blue-500/30 overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-blue-600/5"></div>
-                
                 <div className="relative z-10">
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-cyan-500 rounded-lg flex items-center justify-center">
@@ -427,11 +344,9 @@ const ContactPage = () => {
                 </div>
               </div>
 
-              {/* Response Time Badge */}
               <div className="relative bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-600 bg-[length:200%_100%] animate-gradient p-6 rounded-xl overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent animate-shine"></div>
                 <div className="absolute inset-0 rounded-xl border-2 border-cyan-400/50"></div>
-                
                 <div className="relative z-10 text-center">
                   <div className="flex items-center justify-center gap-2 mb-2">
                     <svg className="w-6 h-6 text-white animate-pulse-slow" fill="currentColor" viewBox="0 0 20 20">
@@ -455,20 +370,15 @@ const ContactPage = () => {
           <div className="absolute top-0 left-0 w-96 h-96 bg-cyan-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob"></div>
           <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-600 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob animation-delay-2000"></div>
         </div>
-
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
           <div className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm p-8 lg:p-12 rounded-2xl border-2 border-cyan-400/30">
-            <h2 className="text-3xl lg:text-4xl font-black text-white mb-4">
-              Ready to Get Started?
-            </h2>
+            <h2 className="text-3xl lg:text-4xl font-black text-white mb-4">Ready to Get Started?</h2>
             <p className="text-xl text-slate-300 mb-6">
               Let's discuss how we can support your hardware requirements with reliable, long-term solutions.
             </p>
             <div className="inline-flex items-center gap-2 px-6 py-3 bg-cyan-400/10 border border-cyan-400/30 rounded-full">
               <div className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse-slow"></div>
-              <span className="text-sm font-semibold text-cyan-400">
-                Powered by Lifecycle Assurance™
-              </span>
+              <span className="text-sm font-semibold text-cyan-400">Powered by Lifecycle Assurance™</span>
             </div>
           </div>
         </div>
@@ -476,123 +386,46 @@ const ContactPage = () => {
 
       <style jsx>{`
         @keyframes blob {
-          0%, 100% {
-            transform: translate(0, 0) scale(1);
-          }
-          33% {
-            transform: translate(30px, -50px) scale(1.1);
-          }
-          66% {
-            transform: translate(-20px, 20px) scale(0.9);
-          }
+          0%, 100% { transform: translate(0, 0) scale(1); }
+          33% { transform: translate(30px, -50px) scale(1.1); }
+          66% { transform: translate(-20px, 20px) scale(0.9); }
         }
-
         @keyframes float {
-          0%, 100% {
-            transform: translateY(0) translateX(0);
-            opacity: 0.6;
-          }
-          50% {
-            transform: translateY(-30px) translateX(15px);
-            opacity: 1;
-          }
+          0%, 100% { transform: translateY(0) translateX(0); opacity: 0.6; }
+          50% { transform: translateY(-30px) translateX(15px); opacity: 1; }
         }
-
         @keyframes gradient-x {
-          0%, 100% {
-            background-position: 0% 50%;
-          }
-          50% {
-            background-position: 100% 50%;
-          }
+          0%, 100% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
         }
-
         @keyframes gradient {
-          0%, 100% {
-            background-position: 0% 50%;
-          }
-          50% {
-            background-position: 100% 50%;
-          }
+          0%, 100% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
         }
-
         @keyframes pulse-slow {
-          0%, 100% {
-            opacity: 1;
-          }
-          50% {
-            opacity: 0.6;
-          }
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0.6; }
         }
-
         @keyframes shine {
-          0% {
-            transform: translateX(-100%) skewX(-15deg);
-          }
-          100% {
-            transform: translateX(200%) skewX(-15deg);
-          }
+          0% { transform: translateX(-100%) skewX(-15deg); }
+          100% { transform: translateX(200%) skewX(-15deg); }
         }
-
         @keyframes fadeIn {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
+          from { opacity: 0; transform: translateY(20px); }
+          to { opacity: 1; transform: translateY(0); }
         }
-
-        .animate-blob {
-          animation: blob 7s infinite;
-        }
-
-        .animate-float {
-          animation: float 6s ease-in-out infinite;
-        }
-
-        .animate-gradient-x {
-          background-size: 200% 200%;
-          animation: gradient-x 3s ease infinite;
-        }
-
-        .animate-gradient {
-          animation: gradient 3s ease infinite;
-        }
-
-        .animate-pulse-slow {
-          animation: pulse-slow 3s ease-in-out infinite;
-        }
-
-        .animate-shine {
-          animation: shine 3s infinite;
-        }
-
-        .animate-fadeIn {
-          animation: fadeIn 0.8s ease-out forwards;
-        }
-
-        .animation-delay-200 {
-          animation-delay: 0.2s;
-        }
-
-        .animation-delay-400 {
-          animation-delay: 0.4s;
-        }
-
-        .animation-delay-600 {
-          animation-delay: 0.6s;
-        }
-
-        .animation-delay-800 {
-          animation-delay: 0.8s;
-        }
-
-        .animation-delay-2000 {
-          animation-delay: 2s;
-        }
+        .animate-blob { animation: blob 7s infinite; }
+        .animate-float { animation: float 6s ease-in-out infinite; }
+        .animate-gradient-x { background-size: 200% 200%; animation: gradient-x 3s ease infinite; }
+        .animate-gradient { animation: gradient 3s ease infinite; }
+        .animate-pulse-slow { animation: pulse-slow 3s ease-in-out infinite; }
+        .animate-shine { animation: shine 3s infinite; }
+        .animate-fadeIn { animation: fadeIn 0.8s ease-out forwards; }
+        .animation-delay-200 { animation-delay: 0.2s; }
+        .animation-delay-400 { animation-delay: 0.4s; }
+        .animation-delay-600 { animation-delay: 0.6s; }
+        .animation-delay-800 { animation-delay: 0.8s; }
+        .animation-delay-2000 { animation-delay: 2s; }
       `}</style>
     </div>
   );

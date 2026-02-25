@@ -8,11 +8,9 @@ import AboutStorySection from '../components/AboutComponents/AboutStory'
 const AboutPage = () => {
   return (
     <div>
-      <AboutHeroSection/>
       <AboutStorySection/>
-      <HowWeWorkSection/>
-      {/* <WhatMakesUsDifferentSection/> */}
-      <FinalCTASection/>
+  
+  
     </div>
   )
 }
