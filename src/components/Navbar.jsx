@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 // Import your logo — adjust the path to match your project structure
-import logo from '../assets/1252-01.png';
+import logo from '../assets/1252 02-01.png';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -65,9 +65,9 @@ const Navbar = () => {
                 <img
                   src={logo}
                   alt="1252 Technology Pte Ltd"
-                  className="h-30 w-auto object-contain"
+                  className="h-50 w-auto object-contain"
                   style={{
-                    minWidth: '190px',
+                    minWidth: '120px',
                     maxWidth: '250px',
                     mixBlendMode: 'screen',
                     filter: 'brightness(2.0) saturate(1.3) contrast(1.1) drop-shadow(0 0 0px transparent)',
