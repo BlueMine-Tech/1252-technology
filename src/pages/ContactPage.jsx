@@ -28,8 +28,8 @@ const ContactPage = () => {
 
     try {
       await emailjs.send(
-        'service_x4eexew',
-        'template_rvdpnqf',
+        'service_fs99bc9',
+        'template_ohh9u2h',
         {
           from_name: formData.name,
           from_email: formData.email,
@@ -39,7 +39,7 @@ const ContactPage = () => {
           timeline: formData.timeline,
           message: formData.message,
         },
-        'tXniJcr9hs6DWXgux'
+        '08iDd6wRPMTVS8hDK'
       );
 
       setIsSubmitting(false);
@@ -115,7 +115,11 @@ const ContactPage = () => {
     }
   ];
 
-
+  const businessHours = [
+    { day: 'Monday - Friday', hours: '9:00 AM - 6:00 PM' },
+    { day: 'Saturday', hours: '9:00 AM - 1:00 PM' },
+    { day: 'Sunday', hours: 'Closed' }
+  ];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
@@ -320,6 +324,27 @@ const ContactPage = () => {
                 </div>
               </div>
 
+              <div className="relative bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm p-6 rounded-xl border-2 border-blue-500/30 overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-blue-600/5"></div>
+                <div className="relative z-10">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-cyan-500 rounded-lg flex items-center justify-center">
+                      <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                    </div>
+                    <h3 className="text-xl font-bold text-white">Business Hours</h3>
+                  </div>
+                  <div className="space-y-3">
+                    {businessHours.map((schedule, index) => (
+                      <div key={index} className="flex justify-between items-center py-2 border-b border-slate-700/50 last:border-0">
+                        <span className="text-slate-300 font-medium">{schedule.day}</span>
+                        <span className="text-cyan-400 font-semibold">{schedule.hours}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
 
               <div className="relative bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm p-6 rounded-xl border-2 border-blue-500/30 overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-blue-600/5"></div>
