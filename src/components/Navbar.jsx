@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 // Import your logo — adjust the path to match your project structure
-import logo from '../assets/1252 02-01.png';
+import logo from '../assets/1252 yellow-01.png';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
