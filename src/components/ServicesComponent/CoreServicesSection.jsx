@@ -124,11 +124,14 @@ const CoreServicesSection = () => {
             <span className="text-sm font-semibold text-cyan-400 tracking-wide">Our Core Services</span>
           </div>
           <h2 className="text-4xl lg:text-5xl font-black text-white mb-4">
-            Built for{' '}
+            {/* "Built for" and "of Your Infrastructure" get the gold border effect */}
+            <span className="gold-border-text">Built for</span>
+            {' '}
             <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent bg-[length:200%] animate-gradient-x">
               Every Layer
-            </span>{' '}
-            of Your Infrastructure
+            </span>
+            {' '}
+            <span className="gold-border-text">of Your Infrastructure</span>
           </h2>
           <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
             From sourcing to strategy — we cover the full hardware and infrastructure lifecycle
@@ -193,6 +196,19 @@ const CoreServicesSection = () => {
       </div>
 
       <style jsx>{`
+        /* ============================================================
+           GOLD BORDER EFFECT — matches HeroSection gold-border-text
+        ============================================================ */
+        .gold-border-text {
+          text-shadow:
+             1px  1px 0px rgba(212, 175, 55, 0.75),
+            -1px -1px 0px rgba(212, 175, 55, 0.75),
+             1px -1px 0px rgba(212, 175, 55, 0.6),
+            -1px  1px 0px rgba(212, 175, 55, 0.6),
+             3px  3px 0px rgba(170, 130, 10, 0.35),
+             4px  4px 3px rgba(0, 0, 0, 0.45);
+        }
+
         @keyframes blob { 0%,100%{transform:translate(0,0) scale(1)} 33%{transform:translate(30px,-50px) scale(1.1)} 66%{transform:translate(-20px,20px) scale(0.9)} }
         @keyframes gradient-x { 0%,100%{background-position:0% 50%} 50%{background-position:100% 50%} }
         @keyframes pulse-slow { 0%,100%{opacity:1} 50%{opacity:0.6} }

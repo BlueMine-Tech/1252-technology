@@ -74,7 +74,9 @@ const AboutStorySection = () => {
             <span className="text-sm font-semibold text-cyan-400 tracking-widest uppercase">About Us</span>
           </div>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 leading-tight">
-            Who We{' '}
+            {/* "Who We" with gold border effect matching HeroSection */}
+            <span className="gold-border-text">Who We</span>
+            {' '}
             <span className="relative inline-block">
               <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent bg-[length:200%] animate-gradient-x">
                 Are
@@ -353,6 +355,31 @@ const AboutStorySection = () => {
       </div>
 
       <style jsx>{`
+        /* ============================================================
+           GOLD BORDER EFFECT — matches HeroSection gold-border-text
+        ============================================================ */
+        .gold-border-text {
+          position: relative;
+          text-shadow:
+             1px  1px 0px rgba(212, 175, 55, 0.75),
+            -1px -1px 0px rgba(212, 175, 55, 0.75),
+             1px -1px 0px rgba(212, 175, 55, 0.6),
+            -1px  1px 0px rgba(212, 175, 55, 0.6),
+             3px  3px 0px rgba(170, 130, 10, 0.35),
+             4px  4px 3px rgba(0, 0, 0, 0.45);
+        }
+
+        .gold-border-text:hover {
+          text-shadow:
+             1px  1px 0px rgba(240, 200, 60, 0.9),
+            -1px -1px 0px rgba(240, 200, 60, 0.9),
+             1px -1px 0px rgba(240, 200, 60, 0.75),
+            -1px  1px 0px rgba(240, 200, 60, 0.75),
+             3px  3px 0px rgba(190, 150, 20, 0.45),
+             4px  4px 3px rgba(0, 0, 0, 0.45);
+          transition: text-shadow 0.4s ease;
+        }
+
         @keyframes blob {
           0%, 100% { transform: translate(0, 0) scale(1); }
           33% { transform: translate(30px, -50px) scale(1.1); }

@@ -46,7 +46,8 @@ const IndustriesSection = () => {
             <span className="text-sm font-semibold text-cyan-400 tracking-widest uppercase">Industries We Serve</span>
           </div>
           <h2 className="text-4xl lg:text-5xl font-black text-white mb-4">
-            Trusted Across{' '}
+            <span className="gold-border-text">Trusted Across</span>
+            {' '}
             <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent bg-[length:200%] animate-gradient-x">
               Every Sector
             </span>
@@ -97,6 +98,19 @@ const IndustriesSection = () => {
       </div>
 
       <style jsx>{`
+        /* ============================================================
+           GOLD BORDER EFFECT — matches HeroSection gold-border-text
+        ============================================================ */
+        .gold-border-text {
+          text-shadow:
+             1px  1px 0px rgba(212, 175, 55, 0.75),
+            -1px -1px 0px rgba(212, 175, 55, 0.75),
+             1px -1px 0px rgba(212, 175, 55, 0.6),
+            -1px  1px 0px rgba(212, 175, 55, 0.6),
+             3px  3px 0px rgba(170, 130, 10, 0.35),
+             4px  4px 3px rgba(0, 0, 0, 0.45);
+        }
+
         @keyframes gradient-x { 0%,100%{background-position:0% 50%} 50%{background-position:100% 50%} }
         .animate-gradient-x{background-size:200% 200%;animation:gradient-x 3s ease infinite}
       `}</style>
