@@ -192,7 +192,7 @@ const HeroSection = () => {
             }`}
           >
             <p className="text-xl md:text-2xl text-slate-300 font-light mb-3 leading-relaxed">
-              Reliable IT Hardware & Network Solutions
+              Enterprises IT Hardware & Network Solutions
             </p>
             <p className="text-2xl md:text-3xl font-bold text-white">
               <span className="inline-block animate-pulse-slow">12 Months.</span>{' '}
