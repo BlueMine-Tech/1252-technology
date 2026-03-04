@@ -52,7 +52,7 @@ const Footer = () => {
                     Technology
                   </span>
                   <span className="text-xs text-cyan-400 leading-tight tracking-wider">
-                    Pte Limited
+                    Pte LTD
                   </span>
                 </div>
               </div>
@@ -132,7 +132,7 @@ const Footer = () => {
         <div className="pt-8 border-t border-slate-700">
           <div className="flex flex-col items-center gap-4 text-center">
             <p className="text-sm text-slate-500">
-              © {currentYear} 1252 Technology Pte Limited. All rights reserved.
+              © {currentYear} 1252 Technology Pte LTD. All rights reserved.
             </p>
 
             <div className="flex items-center gap-2 px-4 py-2 bg-blue-600/10 backdrop-blur-sm border border-blue-500/30 rounded-lg">
