@@ -91,10 +91,10 @@ const Footer = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
                 <a
-                  href="mailto:max@1252.company"
+                  href="mailto:max@1252.technology.com"
                   className="text-sm text-slate-400 hover:text-cyan-400 transition-colors duration-300 whitespace-nowrap"
                 >
-                  max@1252.company
+max@1252.technology.com
                 </a>
               </li>
 
@@ -107,7 +107,7 @@ const Footer = () => {
                   href="tel:+6590026490"
                   className="text-sm text-slate-400 hover:text-cyan-400 transition-colors duration-300 whitespace-nowrap"
                 >
-                  +65 9002 6490
+                  +65 80771252
                 </a>
               </li>
 

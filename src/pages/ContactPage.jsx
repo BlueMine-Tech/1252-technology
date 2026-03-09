@@ -28,8 +28,8 @@ const ContactPage = () => {
 
     try {
       await emailjs.send(
-        'service_fs99bc9',
-        'template_ohh9u2h',
+        'service_lj4cfcn',
+        'template_0iibvrz',
         {
           from_name: formData.name,
           from_email: formData.email,
@@ -39,7 +39,7 @@ const ContactPage = () => {
           timeline: formData.timeline,
           message: formData.message,
         },
-        '08iDd6wRPMTVS8hDK'
+        '7qfCq4Od_Z7I6W_Fb'
       );
 
       setIsSubmitting(false);
@@ -87,8 +87,8 @@ const ContactPage = () => {
         </svg>
       ),
       title: 'Email',
-      detail: 'max@1252.company',
-      link: 'mailto:max@1252.company',
+      detail: 'max@1252.technology.com',
+      link: 'mailto:max@1252.technology.com',
       description: 'For detailed enquiries'
     },
     {
@@ -98,8 +98,8 @@ const ContactPage = () => {
         </svg>
       ),
       title: 'Phone',
-      detail: '+65 9002 6490',
-      link: 'tel:+6590026490',
+      detail: '+6580771252',
+      link: 'tel:+6580771252',
       description: 'Call during business hours'
     },
     {
@@ -109,7 +109,7 @@ const ContactPage = () => {
         </svg>
       ),
       title: 'WhatsApp',
-      detail: '+65 9002 6490',
+      detail: '+6580771252',
       link: 'https://wa.me/6590026490',
       description: 'Quick messages & updates'
     }
@@ -161,7 +161,6 @@ const ContactPage = () => {
               <span className="text-sm font-semibold text-cyan-400 tracking-wide">Get In Touch</span>
             </div>
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-6 animate-fadeIn animation-delay-200">
-              {/* "Let's Discuss Your" gets the gold border effect */}
               <span className="gold-border-text">Let's Discuss Your</span>
               <span className="block mt-2">
                 <span className="relative inline-block">
@@ -411,9 +410,6 @@ const ContactPage = () => {
       </section>
 
       <style jsx>{`
-        /* ============================================================
-           GOLD BORDER EFFECT — matches HeroSection gold-border-text
-        ============================================================ */
         .gold-border-text {
           text-shadow:
              1px  1px 0px rgba(212, 175, 55, 0.75),
@@ -423,7 +419,6 @@ const ContactPage = () => {
              3px  3px 0px rgba(170, 130, 10, 0.35),
              4px  4px 3px rgba(0, 0, 0, 0.45);
         }
-
         @keyframes blob {
           0%, 100% { transform: translate(0, 0) scale(1); }
           33% { transform: translate(30px, -50px) scale(1.1); }

@@ -150,7 +150,7 @@ const FinalCTASection = () => {
                 </svg>
               </div>
               <h3 className="text-sm font-semibold text-slate-400 mb-2">Email</h3>
-              <a href="mailto:max@1252.company" className="text-white hover:text-cyan-400 transition-colors duration-300 font-medium">max@1252.company</a>
+              <a href="mailto:max@1252.technology.com" className="text-white hover:text-cyan-400 transition-colors duration-300 font-medium">max@1252.technology.com</a>
             </div>
           </div>
 
@@ -163,7 +163,7 @@ const FinalCTASection = () => {
                 </svg>
               </div>
               <h3 className="text-sm font-semibold text-slate-400 mb-2">Phone / WhatsApp</h3>
-              <a href="tel:+6590026490" className="text-white hover:text-cyan-400 transition-colors duration-300 font-medium">+65 9002 6490</a>
+              <a href="tel:+6590026490" className="text-white hover:text-cyan-400 transition-colors duration-300 font-medium">+65 80771252</a>
             </div>
           </div>
 
