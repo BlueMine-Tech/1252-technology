@@ -1,6 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+// Same logo import as Navbar
+import logo from '../assets/1252-01.png';
+
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
@@ -40,21 +43,25 @@ const Footer = () => {
         {/* Top Section */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 text-center">
 
-          {/* Company Info */}
+          {/* Company Info — logo matches Navbar exactly */}
           <div className="space-y-4 flex flex-col items-center">
-            <Link to="/" className="group inline-block">
-              <div className="flex items-center gap-3">
-                <div className="relative flex items-center justify-center w-12 h-12 rounded-lg bg-gradient-to-br from-blue-600 to-cyan-500 shadow-lg shadow-blue-600/30 group-hover:shadow-cyan-500/50 transition-all duration-300 group-hover:scale-110">
-                  <span className="text-lg font-bold text-white">1252</span>
-                </div>
-                <div className="flex flex-col">
-                  <span className="text-sm font-semibold text-slate-200 leading-tight tracking-wide">
-                    Technology
-                  </span>
-                  <span className="text-xs text-cyan-400 leading-tight tracking-wider">
-                    Pte LTD
-                  </span>
-                </div>
+            <Link to="/" className="relative group flex items-center transition-all duration-300 hover:scale-105">
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-cyan-500/10 rounded-xl opacity-0 group-hover:opacity-100 blur-sm transition-opacity duration-300"></div>
+              <div className="relative z-10 rounded-lg overflow-hidden">
+                <img
+                  src={logo}
+                  alt="1252 Technology Pte Ltd"
+                  className="h-auto w-auto object-contain"
+                  style={{
+                    minWidth: '120px',
+                    maxWidth: '200px',
+                    mixBlendMode: 'screen',
+                    filter: 'brightness(2.0) saturate(1.3) contrast(1.1) drop-shadow(0 0 0px transparent)',
+                    transition: 'filter 0.3s'
+                  }}
+                  onMouseEnter={e => e.currentTarget.style.filter = 'brightness(2.4) saturate(1.4) contrast(1.1) drop-shadow(0 0 14px rgba(6,182,212,0.8))'}
+                  onMouseLeave={e => e.currentTarget.style.filter = 'brightness(2.0) saturate(1.3) contrast(1.1) drop-shadow(0 0 0px transparent)'}
+                />
               </div>
             </Link>
 
@@ -94,7 +101,7 @@ const Footer = () => {
                   href="mailto:max@1252.technology.com"
                   className="text-sm text-slate-400 hover:text-cyan-400 transition-colors duration-300 whitespace-nowrap"
                 >
-max@1252.technology.com
+                  max@1252.technology.com
                 </a>
               </li>
 
@@ -104,7 +111,7 @@ max@1252.technology.com
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
                 <a
-                  href="tel:+6590026490"
+                  href="tel:+6580771252"
                   className="text-sm text-slate-400 hover:text-cyan-400 transition-colors duration-300 whitespace-nowrap"
                 >
                   +65 80771252
