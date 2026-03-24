@@ -51,10 +51,10 @@ const Footer = () => {
                 <img
                   src={logo}
                   alt="1252 Technology Pte Ltd"
-                  className="h-auto w-auto object-contain"
+                  className="h-50 w-auto object-contain"
                   style={{
                     minWidth: '120px',
-                    maxWidth: '200px',
+                    maxWidth: '250px',
                     mixBlendMode: 'screen',
                     filter: 'brightness(2.0) saturate(1.3) contrast(1.1) drop-shadow(0 0 0px transparent)',
                     transition: 'filter 0.3s'
@@ -139,7 +139,7 @@ const Footer = () => {
         <div className="pt-8 border-t border-slate-700">
           <div className="flex flex-col items-center gap-4 text-center">
             <p className="text-sm text-slate-500">
-              © {currentYear} 1252 Technology Pte LTD. All rights reserved.
+              © {currentYear} 1252 Technology Pte Ltd. All rights reserved.
             </p>
 
             <div className="flex items-center gap-2 px-4 py-2 bg-blue-600/10 backdrop-blur-sm border border-blue-500/30 rounded-lg">

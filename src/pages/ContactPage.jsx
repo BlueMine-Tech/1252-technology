@@ -324,28 +324,7 @@ const ContactPage = () => {
                 </div>
               </div>
 
-              {/* Business Hours */}
-              <div className="relative bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm p-4 sm:p-6 rounded-xl border-2 border-blue-500/30 overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-blue-600/5"></div>
-                <div className="relative z-10">
-                  <div className="flex items-center gap-3 mb-3 sm:mb-4">
-                    <div className="w-9 h-9 sm:w-10 sm:h-10 bg-gradient-to-br from-blue-600 to-cyan-500 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <svg className="w-4 h-4 sm:w-5 sm:h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                    </div>
-                    <h3 className="text-lg sm:text-xl font-bold text-white">Business Hours</h3>
-                  </div>
-                  <div className="space-y-2 sm:space-y-3">
-                    {businessHours.map((schedule, index) => (
-                      <div key={index} className="flex justify-between items-center py-1.5 sm:py-2 border-b border-slate-700/50 last:border-0">
-                        <span className="text-slate-300 font-medium text-sm sm:text-base">{schedule.day}</span>
-                        <span className="text-cyan-400 font-semibold text-sm sm:text-base">{schedule.hours}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
+             
 
               {/* Location */}
               <div className="relative bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm p-4 sm:p-6 rounded-xl border-2 border-blue-500/30 overflow-hidden">
