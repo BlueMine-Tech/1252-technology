@@ -15,7 +15,7 @@ function Home() {
 
         <meta
           name="description"
-          content="We Power Modern Businesses with Trusted Enterprise IT Infrastructure & Network Solutions 12 Months. 52 Weeks. Always On."
+          content="1252 Technology provides reliable IT solutions and business technology services in Singapore. We help companies scale with modern, efficient systems"
         />
 
         <meta
