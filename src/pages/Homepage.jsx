@@ -11,7 +11,7 @@ function Home() {
   return (
     <>
       <Helmet>
-        <title>Best IT hardware solutions in Singapore | 1252 Technology</title>
+        <title>Best IT Solutions & Business Technology Services Singapore | 1252 Technology</title>
 
         <meta
           name="description"
