@@ -11,16 +11,16 @@ function Home() {
   return (
     <>
       <Helmet>
-        <title>Best Logo & Web Design Services in Tamil Nadu | 1252 Technology</title>
+        <title>Best IT hardware solutions in Singapore | 1252 Technology</title>
 
         <meta
           name="description"
-          content="1252 Technology offers professional logo design, branding, and web design services in Tamil Nadu. Build your brand with us."
+          content="We Power Modern Businesses with Trusted Enterprise IT Infrastructure & Network Solutions 12 Months. 52 Weeks. Always On."
         />
 
         <meta
           name="keywords"
-          content="logo design, web design, branding, graphic designer tamil nadu, business branding india"
+          content="technology solutions Singapore, IT services Singapore, digital transformation Singapore, enterprise technology consulting, technology strategy Singapore, managed IT services Singapore, network infrastructure solutions, technology consulting firms in Singapore, best IT support company Singapore, how to choose IT solutions provider Singapore, cloud migration strategy for SMEs Singapore, AI solutions for businesses Singapore, IoT solutions Singapore, digital transformation for SMEs Singapore, IT hardware solutions in Singapore, technology consultancy Singapore CBD, tech services in Singapore, top IT hardware companies in Singapore, best IT firms in Singapore 2026, top software companies Singapore, leading tech consultants Singapore"
         />
 
         <link rel="canonical" href="https://www.1252technology.com/" />
