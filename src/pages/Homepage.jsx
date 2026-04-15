@@ -11,12 +11,11 @@ function Home() {
   return (
     <>
       <Helmet>
-        <title>1252 Technology pte ltd</title>
-
-        <meta
-          name="description"
-          content="1252 Technology provides reliable IT solutions and business technology services in Singapore. We help companies scale with modern, efficient systems"
-        />
+  <title>1252 Technology pte ltd</title>
+  <meta
+    name="description"
+    content="1252 Technology provides reliable IT solutions and business technology services in Singapore."
+  />
 
         <meta
           name="keywords"
