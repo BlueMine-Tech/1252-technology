@@ -32,20 +32,6 @@ function Home() {
 
 export default Home;
 
-function Home() {
-  return (
-    <>
-      <Helmet>
-        <link rel="canonical" href="https://www.1252technology.com/" />
-      </Helmet>
-
-      {/* your existing code */}
-    </>
-  );
-}
-
-export default Home;
-
 function HomePage() {
   return (
     <div>
