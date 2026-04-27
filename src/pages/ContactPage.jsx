@@ -72,8 +72,8 @@ const ContactPage = () => {
         </svg>
       ),
       title: 'Email',
-      detail: 'max@1252.technology.com',
-      link: 'mailto:max@1252.technology.com',
+      detail: 'max@1252technology.com',
+      link: 'mailto:max@1252technology.com',
       description: 'For detailed enquiries'
     },
     {
