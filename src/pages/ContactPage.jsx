@@ -391,7 +391,7 @@ const ContactPage = () => {
         </div>
       </section>
 
-      <style jsx>{`
+      <style>{`
         .gold-border-text {
           text-shadow:
              1px  1px 0px rgba(212, 175, 55, 0.75),
