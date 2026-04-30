@@ -150,7 +150,7 @@ const FinalCTASection = () => {
                 </svg>
               </div>
               <h3 className="text-sm font-semibold text-slate-400 mb-2">Email</h3>
-              <a href="mailto:max@1252.technology.com" className="text-white hover:text-cyan-400 transition-colors duration-300 font-medium">max@1252.technology.com</a>
+              <a href="mailto:max@1252technology.com" className="text-white hover:text-cyan-400 transition-colors duration-300 font-medium">max@1252technology.com</a>
             </div>
           </div>
 
