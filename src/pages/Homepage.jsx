@@ -1,5 +1,6 @@
 import FinalCTASection from '../components/FinalCTASection';
 import HeroSection from '../components/HeroSection';
+import BrandsStrip from '../components/BrandStrip';
 import LifecycleAssuranceSection from '../components/LifecycleAssuranceSection';
 import WhoWereBestForSection from '../components/WhoWereBestForSection';
 import IndustriesWeSupport from './../components/IndustriesWeSupport';
@@ -16,6 +17,7 @@ function Home() {
       </Helmet>
 
       <HeroSection />
+      <BrandsStrip />
       <LifecycleAssuranceSection />
       <WhoWereBestForSection />
       <IndustriesWeSupport />
