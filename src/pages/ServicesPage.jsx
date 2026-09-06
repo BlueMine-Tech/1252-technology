@@ -7,7 +7,7 @@ import TechEcosystemSection from "../components/ServicesComponent/Techechosystem
 
 const ServicesPage = () => (
   <div>
- <CoreServicesSection/>
+ {/* <CoreServicesSection/> */}
  <ServiceOfferingsSection/>
  <IndustriesSection/>
  <FinalCTASection/>

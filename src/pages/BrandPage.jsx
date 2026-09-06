@@ -15,6 +15,7 @@ const CATEGORIES = [
       </svg>
     ),
     brands: [
+      { name: 'Cisco', categories: 'Enterprise switches, routers, wireless (Meraki), security appliances, collaboration (Webex)', note: 'Official Cisco Partner, via Ingram Micro' },
       { name: 'Ubiquiti', categories: 'Wireless access points (UniFi), switches, routers, security cameras (Protect)', note: 'Popular for SME networking' },
       { name: 'MikroTik', categories: 'Routers, switches, wireless systems, RouterOS-based networking gear', note: 'Budget-friendly networking' },
       { name: 'TP-Link', categories: 'Routers, switches, access points, smart home/IoT, surveillance (VIGI)', note: 'Consumer + SMB range' },
@@ -82,7 +83,7 @@ const BrandsPage = () => {
     <div className="bg-slate-950 min-h-screen py-24 lg:py-32">
       <div className="max-w-5xl mx-auto px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-14">
+        <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-5 py-2.5 mb-6 bg-gradient-to-r from-blue-600/20 to-cyan-500/20 backdrop-blur-sm border border-blue-500/30 rounded-full">
             <div className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
             <span className="text-sm font-semibold text-cyan-400 tracking-widest uppercase">Brands & Partners</span>
@@ -96,38 +97,12 @@ const BrandsPage = () => {
           </p>
         </div>
 
-        {/* Featured: Cisco */}
-        <div className="relative mb-16 rounded-2xl overflow-hidden bg-gradient-to-br from-slate-800/70 to-slate-900/70 border border-cyan-400/30">
-          <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 via-cyan-400 to-blue-500" />
-          <div className="p-8 lg:p-10 flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-10">
-            <div className="flex-shrink-0">
-              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-600 to-cyan-500 flex items-center justify-center">
-                <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
-                </svg>
-              </div>
-            </div>
-            <div className="flex-1">
-              <div className="flex flex-wrap items-center gap-3 mb-2">
-                <h2 className="text-2xl font-black text-white">Cisco</h2>
-                <span className="px-3 py-1 text-xs font-bold uppercase tracking-wide rounded-full bg-cyan-400/10 border border-cyan-400/30 text-cyan-400">
-                  Official Partner
-                </span>
-              </div>
-              <p className="text-slate-300 leading-relaxed mb-2">
-                Enterprise switches, routers, wireless (Meraki), security appliances, and collaboration (Webex).
-              </p>
-              <p className="text-sm text-slate-500">Official Cisco Partner, via Ingram Micro.</p>
-            </div>
-          </div>
-        </div>
-
-        {/* Grouped categories */}
+        {/* Grouped categories — every brand gets the same treatment */}
         <div className="space-y-14">
           {CATEGORIES.map((group) => (
             <div key={group.label}>
               <div className="flex items-center gap-3 mb-6">
-                <div className="text-white" style={{ color: group.accent }}>{group.icon}</div>
+                <div style={{ color: group.accent }}>{group.icon}</div>
                 <h3 className="text-lg font-bold text-white">{group.label}</h3>
                 <div className="flex-1 h-px bg-slate-800" />
               </div>
@@ -140,7 +115,7 @@ const BrandsPage = () => {
                       style={{ backgroundColor: group.accent, opacity: 0.5 }}
                     />
                     <div>
-                      <h4 className="text-white font-bold mb-1">{brand.name}</h4>
+                      <h4 className="text-white font-black text-2xl mb-1.5">{brand.name}</h4>
                       <p className="text-sm text-slate-400 leading-relaxed mb-1.5">{brand.categories}</p>
                       {brand.caution ? (
                         <span className="inline-block px-2.5 py-0.5 text-xs font-medium rounded-full bg-amber-400/10 border border-amber-400/30 text-amber-400">

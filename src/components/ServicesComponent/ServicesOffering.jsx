@@ -11,10 +11,9 @@ const ServiceOfferingsSection = () => {
       eyebrow: 'Section 1',
       title: 'Infrastructure Advisory & Consulting',
       heading: "Not sure what you need? We'll tell you straight.",
-      body: "Buying network gear without a plan is how companies end up with switches they didn't need and gaps they didn't see coming. We're an official Cisco partner, and before we sell you anything, we'll look at what you actually have and tell you what you actually need — even if that means less hardware, not more.",
       items: [
         'Network design and architecture',
-        "Vendor and hardware selection (we work across 15+ brands, so we're not just pushing one)",
+        "Vendor and hardware selection — we work across 15+ brands, so we're not just pushing one",
         'Tender and RFP support for government or enterprise bids',
       ],
       cta: { label: 'Book a site assessment', to: '/contact?type=assessment' },
@@ -30,7 +29,6 @@ const ServiceOfferingsSection = () => {
       eyebrow: 'Section 2',
       title: 'Installation & Deployment',
       heading: "We don't just sell it. We put it in.",
-      body: "Structured cabling, CCTV, wireless networks, server and rack setups — we've done the on-site work, not just the paperwork. Recent projects include full CCTV supply-and-install for commercial clients, from camera selection through to commissioning.",
       items: [
         'Structured cabling and network wiring',
         'CCTV supply, installation, and commissioning',
@@ -50,7 +48,6 @@ const ServiceOfferingsSection = () => {
       eyebrow: 'Section 3',
       title: 'Ongoing Support',
       heading: "We don't disappear after install day.",
-      body: "Once your network's up, we stay reachable — health checks, maintenance visits, and support when something's not working right. No long contracts required to start.",
       items: [
         'Scheduled maintenance visits',
         'Health checks and troubleshooting',
@@ -119,7 +116,7 @@ const ServiceOfferingsSection = () => {
               <div className="relative bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-sm rounded-2xl border border-slate-700/50 hover:border-cyan-400/40 p-8 lg:p-10 overflow-hidden transition-all duration-400 hover:shadow-[0_20px_60px_rgba(34,211,238,0.1)]">
                 <div className={`absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r ${svc.accent} opacity-60`} />
 
-                <div className="relative z-10 grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1.3fr)] gap-8 lg:gap-12 items-start">
+                <div className="relative z-10 grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1.3fr)] gap-8 lg:gap-12 items-center">
                   {/* Left: identity + CTA */}
                   <div>
                     <div className="flex items-center gap-3 mb-5">
@@ -158,21 +155,18 @@ const ServiceOfferingsSection = () => {
                     )}
                   </div>
 
-                  {/* Right: body copy + bullets */}
-                  <div>
-                    <p className="text-slate-400 leading-relaxed mb-6">{svc.body}</p>
-                    <div className="space-y-2.5">
-                      {svc.items.map((item, idx) => (
-                        <div key={idx} className="flex items-start gap-3">
-                          <div className={`mt-0.5 w-5 h-5 rounded-full bg-gradient-to-br ${svc.accent} flex items-center justify-center flex-shrink-0`}>
-                            <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
-                              <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                            </svg>
-                          </div>
-                          <span className="text-sm text-slate-300 leading-relaxed">{item}</span>
+                  {/* Right: bullets only — no body paragraph */}
+                  <div className="space-y-3">
+                    {svc.items.map((item, idx) => (
+                      <div key={idx} className="flex items-start gap-3">
+                        <div className={`mt-0.5 w-5 h-5 rounded-full bg-gradient-to-br ${svc.accent} flex items-center justify-center flex-shrink-0`}>
+                          <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                          </svg>
                         </div>
-                      ))}
-                    </div>
+                        <span className="text-base text-slate-300 leading-relaxed">{item}</span>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
