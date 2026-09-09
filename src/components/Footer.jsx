@@ -41,19 +41,18 @@ const Footer = () => {
       {/* Main Footer Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 py-12">
         {/* Top Section */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 text-center">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 text-center md:items-start">
 
           {/* Company Info — logo matches Navbar exactly */}
           <div className="space-y-4 flex flex-col items-center">
-            <Link to="/" className="relative group flex items-center transition-all duration-300 hover:scale-105">
+            <Link to="/" className="relative group flex items-center justify-center h-12 transition-all duration-300 hover:scale-105">
               <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-cyan-500/10 rounded-xl opacity-0 group-hover:opacity-100 blur-sm transition-opacity duration-300"></div>
-              <div className="relative z-10 rounded-lg overflow-hidden">
+              <div className="relative z-10 rounded-lg overflow-hidden h-full flex items-center">
                 <img
                   src={logo}
                   alt="1252 Technology Pte Ltd"
-                  className="h-50 w-auto object-contain"
+                  className="h-12 w-auto object-contain"
                   style={{
-                    minWidth: '120px',
                     maxWidth: '250px',
                     mixBlendMode: 'screen',
                     filter: 'brightness(2.0) saturate(1.3) contrast(1.1) drop-shadow(0 0 0px transparent)',
@@ -73,8 +72,8 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div className="flex flex-col items-center">
-            <h3 className="text-sm font-bold text-white mb-4 uppercase tracking-wider">Quick Links</h3>
-            <ul className="space-y-2">
+            <h3 className="h-12 flex items-center text-sm font-bold text-white uppercase tracking-wider">Quick Links</h3>
+            <ul className="space-y-2 mt-4">
               {quickLinks.map((link, index) => (
                 <li key={index}>
                   <Link
@@ -90,8 +89,8 @@ const Footer = () => {
 
           {/* Contact */}
           <div className="flex flex-col items-center">
-            <h3 className="text-sm font-bold text-white mb-4 uppercase tracking-wider">Contact</h3>
-            <ul className="space-y-3 inline-block text-left">
+            <h3 className="h-12 flex items-center text-sm font-bold text-white uppercase tracking-wider">Contact</h3>
+            <ul className="space-y-3 mt-4 inline-block text-left">
               {/* Email */}
               <li className="flex items-center gap-2">
                 <svg className="w-4 h-4 text-cyan-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">

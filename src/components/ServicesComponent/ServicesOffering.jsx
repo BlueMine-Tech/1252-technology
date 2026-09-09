@@ -17,6 +17,7 @@ const ServiceOfferingsSection = () => {
         'Tender and RFP support for government or enterprise bids',
       ],
       cta: { label: 'Book a site assessment', to: '/contact?type=assessment' },
+      turnaround: 'Typical turnaround: 2–3 business days for a proposal',
       icon: (
         <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
@@ -36,6 +37,12 @@ const ServiceOfferingsSection = () => {
         'Server and rack setup',
       ],
       cta: { label: 'Get a quote for installation', to: '/contact?type=installation' },
+      turnaround: 'Most installs completed within 1–2 weeks of confirmation',
+      priceBands: [
+        { label: 'Small installs', detail: '1–5 cameras / single door access', range: '$500 – $2,000' },
+        { label: 'Mid-size deployments', detail: 'Multi-door, structured cabling, racks', range: '$2,000 – $15,000' },
+        { label: 'Enterprise / multi-site rollouts', detail: '', range: 'Custom quote' },
+      ],
       icon: (
         <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z" />
@@ -54,6 +61,7 @@ const ServiceOfferingsSection = () => {
         "Ongoing support for systems we've installed",
       ],
       cta: { label: 'Talk to us about support', href: 'https://wa.me/6580771252' },
+      turnaround: 'Response time: same business day for critical issues',
       icon: (
         <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z" />
@@ -89,17 +97,14 @@ const ServiceOfferingsSection = () => {
       </div>
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 lg:px-8">
-        {/* Header */}
+        {/* Header — heading now a single, uniform white */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-5 py-2.5 mb-6 bg-gradient-to-r from-blue-600/20 to-cyan-500/20 backdrop-blur-sm border border-blue-500/30 rounded-full">
             <div className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
             <span className="text-sm font-semibold text-cyan-400 tracking-widest uppercase">Services</span>
           </div>
           <h2 className="text-4xl lg:text-5xl font-black text-white mb-4">
-            <span className="gold-border-text">How We</span>{' '}
-            <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent bg-[length:200%] animate-gradient-x">
-              Work With You
-            </span>
+            How We Work With You
           </h2>
           <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
             From the first walkthrough to years after install — three ways we help, no procurement runaround.
@@ -116,8 +121,8 @@ const ServiceOfferingsSection = () => {
               <div className="relative bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-sm rounded-2xl border border-slate-700/50 hover:border-cyan-400/40 p-8 lg:p-10 overflow-hidden transition-all duration-400 hover:shadow-[0_20px_60px_rgba(34,211,238,0.1)]">
                 <div className={`absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r ${svc.accent} opacity-60`} />
 
-                <div className="relative z-10 grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1.3fr)] gap-8 lg:gap-12 items-center">
-                  {/* Left: identity + CTA */}
+                <div className="relative z-10 grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1.3fr)] gap-8 lg:gap-12 items-start">
+                  {/* Left: identity + CTA + turnaround */}
                   <div>
                     <div className="flex items-center gap-3 mb-5">
                       <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${svc.accent} p-0.5 flex-shrink-0`}>
@@ -153,20 +158,51 @@ const ServiceOfferingsSection = () => {
                         </svg>
                       </a>
                     )}
+
+                    {/* Turnaround / response-time note */}
+                    {svc.turnaround && (
+                      <div className="flex items-center gap-2 mt-3 text-xs text-slate-500">
+                        <svg className="w-3.5 h-3.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6l4 2m6-2a10 10 0 11-20 0 10 10 0 0120 0z" />
+                        </svg>
+                        <span>{svc.turnaround}</span>
+                      </div>
+                    )}
                   </div>
 
-                  {/* Right: bullets only — no body paragraph */}
-                  <div className="space-y-3">
-                    {svc.items.map((item, idx) => (
-                      <div key={idx} className="flex items-start gap-3">
-                        <div className={`mt-0.5 w-5 h-5 rounded-full bg-gradient-to-br ${svc.accent} flex items-center justify-center flex-shrink-0`}>
-                          <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
-                            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                          </svg>
+                  {/* Right: bullets + optional price bands (Section 2 only) */}
+                  <div>
+                    <div className="space-y-3">
+                      {svc.items.map((item, idx) => (
+                        <div key={idx} className="flex items-start gap-3">
+                          <div className={`mt-0.5 w-5 h-5 rounded-full bg-gradient-to-br ${svc.accent} flex items-center justify-center flex-shrink-0`}>
+                            <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                              <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                            </svg>
+                          </div>
+                          <span className="text-base text-slate-300 leading-relaxed">{item}</span>
                         </div>
-                        <span className="text-base text-slate-300 leading-relaxed">{item}</span>
+                      ))}
+                    </div>
+
+                    {svc.priceBands && (
+                      <div className="mt-6 pt-6 border-t border-slate-700/50 space-y-3">
+                        <p className="text-xs font-bold uppercase tracking-widest text-slate-500 mb-3">
+                          Typical project sizing
+                        </p>
+                        {svc.priceBands.map((band, idx) => (
+                          <div key={idx} className="flex items-baseline justify-between gap-4">
+                            <div>
+                              <span className="text-sm font-semibold text-slate-200">{band.label}</span>
+                              {band.detail && (
+                                <span className="text-xs text-slate-500"> — {band.detail}</span>
+                              )}
+                            </div>
+                            <span className="text-sm font-bold text-cyan-400 whitespace-nowrap">{band.range}</span>
+                          </div>
+                        ))}
                       </div>
-                    ))}
+                    )}
                   </div>
                 </div>
               </div>
@@ -174,20 +210,6 @@ const ServiceOfferingsSection = () => {
           ))}
         </div>
       </div>
-
-      <style jsx>{`
-        .gold-border-text {
-          text-shadow:
-             1px  1px 0px rgba(212, 175, 55, 0.75),
-            -1px -1px 0px rgba(212, 175, 55, 0.75),
-             1px -1px 0px rgba(212, 175, 55, 0.6),
-            -1px  1px 0px rgba(212, 175, 55, 0.6),
-             3px  3px 0px rgba(170, 130, 10, 0.35),
-             4px  4px 3px rgba(0, 0, 0, 0.45);
-        }
-        @keyframes gradient-x { 0%,100%{background-position:0% 50%} 50%{background-position:100% 50%} }
-        .animate-gradient-x{background-size:200% 200%;animation:gradient-x 3s ease infinite}
-      `}</style>
     </section>
   );
 };

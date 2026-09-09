@@ -118,7 +118,7 @@ const BrandsPage = () => {
                       <h4 className="text-white font-black text-2xl mb-1.5">{brand.name}</h4>
                       <p className="text-sm text-slate-400 leading-relaxed mb-1.5">{brand.categories}</p>
                       {brand.caution ? (
-                        <span className="inline-block px-2.5 py-0.5 text-xs font-medium rounded-full bg-amber-400/10 border border-amber-400/30 text-amber-400">
+                        <span className="inline-block px-2.5 py-0.5 text-xs font-medium rounded-full bg-white/5 border border-white/20 text-slate-300">
                           {brand.note}
                         </span>
                       ) : (
