@@ -20,7 +20,7 @@ function Home() {
       <BrandsStrip />
       <LifecycleAssuranceSection />
       <WhoWereBestForSection />
-      <IndustriesWeSupport />
+      {/* <IndustriesWeSupport /> */}
       <FinalCTASection />
     </>
   );
